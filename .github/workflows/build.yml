@@ -14,7 +14,10 @@ jobs:
       dists: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - id: set-matrix
-        run: echo "::set-output name=matrix::"$(jq -c . dist.json)
+        run: |
+          content = $(jq -c . dist.json)
+          echo "::set-output name=matrix::${content}"
+          echo ${content}
   build:
     needs: set-dists
     runs-on: ubuntu-latest
