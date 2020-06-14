@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 10 * * 0"
+
+jobs:
+  set-dists:
+    runs-on: ubuntu-latest
+    outputs:
+      dists: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - id: set-matrix
+        run: echo "::set-output name=matrix::"$(cat dist.json)
+  build:
+    needs: set-dists
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.set-dists.outputs.dists) }}
+    steps:
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: yasuyuky/ssh-test
+        tags: ${{ matrix.dist }}.${{ matrix.ver }}
