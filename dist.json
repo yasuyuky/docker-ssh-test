@@ -1,0 +1,6 @@
+[
+  { "dist": "ubuntu", "ver": "bionic" },
+  { "dist": "ubuntu", "ver": "focal" },
+  { "dist": "debian", "ver": "buster" },
+  { "dist": "debian", "ver": "bullseye" }
+]
