@@ -28,6 +28,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker/build-push-action@v1
         with:
+          build_args: dist=${{ matrix.dist }},ver=${{ matrix.ver }}
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: yasuyuky/ssh-test
