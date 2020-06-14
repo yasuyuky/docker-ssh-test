@@ -19,10 +19,7 @@ jobs:
     needs: set-dists
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        dist: []
-        ver: []
-        include: ${{ fromJson(needs.set-dists.outputs.dists) }}
+      matrix: ${{ fromJson(needs.set-dists.outputs.dists) }}
     steps:
       - uses: docker/build-push-action@v1
         with:

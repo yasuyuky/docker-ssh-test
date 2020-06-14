@@ -1,6 +1,8 @@
-[
-  { "dist": "ubuntu", "ver": "bionic" },
-  { "dist": "ubuntu", "ver": "focal" },
-  { "dist": "debian", "ver": "buster" },
-  { "dist": "debian", "ver": "bullseye" }
-]
+{
+  "include": [
+    { "dist": "ubuntu", "ver": "bionic" },
+    { "dist": "ubuntu", "ver": "focal" },
+    { "dist": "debian", "ver": "buster" },
+    { "dist": "debian", "ver": "bullseye" }
+  ]
+}
