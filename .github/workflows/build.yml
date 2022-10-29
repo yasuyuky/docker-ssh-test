@@ -18,7 +18,7 @@ jobs:
       - id: set-matrix
         run: |
           content=$(jq -c . dist.json)
-          echo "::set-output name=matrix::${content}"
+          echo matrix=${content} >>$GITHUB_OUTPUT
           echo ${content}
   build:
     needs: set-dists
