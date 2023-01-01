@@ -44,5 +44,7 @@ jobs:
       - uses: docker/build-push-action@v3
         with:
           platforms: linux/amd64,linux/arm64,linux/arm/v7
-          build-args: dist=${{ matrix.dist }},ver=${{ matrix.ver }}
+          build-args: |
+            dist=${{ matrix.dist }}
+            ver=${{ matrix.ver }}
           tags: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ matrix.dist }}.${{ matrix.ver }}
