@@ -18,7 +18,7 @@ jobs:
     outputs:
       dists: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - id: set-matrix
         run: |
           content=$(jq -c . dist.json)
@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.set-dists.outputs.dists) }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
