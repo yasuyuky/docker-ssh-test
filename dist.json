@@ -2,6 +2,7 @@
   "include": [
     { "dist": "ubuntu", "ver": "focal" },
     { "dist": "ubuntu", "ver": "jammy" },
+    { "dist": "ubuntu", "ver": "noble" },
     { "dist": "debian", "ver": "buster" },
     { "dist": "debian", "ver": "bullseye" },
     { "dist": "debian", "ver": "bookworm" }
